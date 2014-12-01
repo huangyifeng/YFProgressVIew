@@ -10,6 +10,11 @@
 
 @interface YFProgressView ()
 
+@property(nonatomic, strong)UIView *trackBar;
+@property(nonatomic, strong)UIView *progressBar;
+
+- (void)initViewComponent;
+
 @end
 
 @implementation YFProgressView
@@ -23,10 +28,61 @@
     return self;
 }
 
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame])
+    {
+        [self initViewComponent];
+    }
+    return self;
+}
+
+
+#pragma mark - init
+
+- (void)initViewComponent
+{
+    self.trackBar = [[UIView alloc] init];
+    
+    self.progressBar = [[UIView alloc] init];
+    
+    [self addSubview:self.trackBar];
+    [self addSubview:self.progressBar];
+}
+
+
+#pragma mark - override 
+
+- (void)layoutSubviews
+{
+    self.trackBar.frame = self.bounds;
+    
+    
+    if (YFProgressViewScrollStyleDefault == self.scrollStyle)
+    {
+        self.progressBar.frame = self.bounds;
+    }
+    else
+    {
+        
+    }
+    
+    
+}
+
 #pragma mark - public
 
 - (void)setProgress:(float)progress animated:(BOOL)animated
 {
+    
+}
+
+- (void)startScroll
+{
+    if (YFProgressViewScrollStyleUnKnowEnding != self.scrollStyle)
+    {
+        return;
+    }
     
 }
 

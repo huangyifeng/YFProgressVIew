@@ -25,5 +25,7 @@ typedef enum
 - (void)setProgress:(float)progress
            animated:(BOOL)animated;
 
+- (void)startScroll;
+
 
 @end
