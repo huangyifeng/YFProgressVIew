@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +17,95 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTL-aT-Joy" customClass="YFProgressView">
+                                <rect key="frame" x="150" y="52" width="300" height="20"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="vOs-Ib-TRd"/>
+                                    <constraint firstAttribute="width" constant="300" id="w8O-xi-KuL"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfP-oQ-SUB" customClass="YFProgressView">
+                                <rect key="frame" x="150" y="121" width="300" height="20"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="KkN-ka-wlr"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Wz-0b-fLF">
+                                <rect key="frame" x="150" y="210" width="105" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Hfm-PX-CVa"/>
+                                    <constraint firstAttribute="width" constant="105" id="LFK-Hg-1Wf"/>
+                                </constraints>
+                                <state key="normal" title="Start Scroll">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startScroll:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="KHn-zu-fUx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xTZ-Bo-AYk">
+                                <rect key="frame" x="150" y="285" width="105" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="105" id="4hK-ov-rrb"/>
+                                    <constraint firstAttribute="height" constant="30" id="IqL-C8-rTX"/>
+                                </constraints>
+                                <state key="normal" title="Start Progress">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startProgress:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="el0-vW-bEc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rU2-Sg-aTo">
+                                <rect key="frame" x="337" y="210" width="84" height="31"/>
+                                <state key="normal" title="Stop Scroll">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopScroll:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4Iy-fc-tJn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ple-nC-Nwg">
+                                <rect key="frame" x="337" y="285" width="104" height="30"/>
+                                <state key="normal" title="Reset progress">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetProgress:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="U2V-cx-aBJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9Wz-0b-fLF" firstAttribute="firstBaseline" secondItem="rU2-Sg-aTo" secondAttribute="baseline" id="0ch-3g-Y0H"/>
+                            <constraint firstItem="9Wz-0b-fLF" firstAttribute="top" secondItem="rU2-Sg-aTo" secondAttribute="top" id="5aU-n0-Gh8"/>
+                            <constraint firstItem="tfP-oQ-SUB" firstAttribute="top" secondItem="BTL-aT-Joy" secondAttribute="bottom" constant="49" id="6HY-1K-Ssu"/>
+                            <constraint firstItem="tfP-oQ-SUB" firstAttribute="trailing" secondItem="BTL-aT-Joy" secondAttribute="trailing" id="6sg-N6-hcf"/>
+                            <constraint firstItem="xTZ-Bo-AYk" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="91Z-5P-2ig"/>
+                            <constraint firstItem="9Wz-0b-fLF" firstAttribute="centerY" secondItem="rU2-Sg-aTo" secondAttribute="centerY" id="Kc2-m5-UfP"/>
+                            <constraint firstItem="rU2-Sg-aTo" firstAttribute="leading" secondItem="9Wz-0b-fLF" secondAttribute="trailing" constant="82" id="NtJ-vT-kXl"/>
+                            <constraint firstItem="xTZ-Bo-AYk" firstAttribute="top" secondItem="9Wz-0b-fLF" secondAttribute="bottom" constant="45" id="Utc-bP-svv"/>
+                            <constraint firstItem="Ple-nC-Nwg" firstAttribute="leading" secondItem="xTZ-Bo-AYk" secondAttribute="trailing" constant="82" id="VWS-xn-dbf"/>
+                            <constraint firstAttribute="centerX" secondItem="BTL-aT-Joy" secondAttribute="centerX" id="bTa-Xo-KbJ"/>
+                            <constraint firstItem="9Wz-0b-fLF" firstAttribute="baseline" secondItem="rU2-Sg-aTo" secondAttribute="firstBaseline" id="bu4-zo-cgb"/>
+                            <constraint firstItem="BTL-aT-Joy" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="32" id="f0s-d4-FuV"/>
+                            <constraint firstItem="tfP-oQ-SUB" firstAttribute="leading" secondItem="BTL-aT-Joy" secondAttribute="leading" id="hnz-Xs-BP8"/>
+                            <constraint firstItem="xTZ-Bo-AYk" firstAttribute="baseline" secondItem="Ple-nC-Nwg" secondAttribute="baseline" id="ihU-1q-zSg"/>
+                            <constraint firstAttribute="centerX" secondItem="xTZ-Bo-AYk" secondAttribute="centerX" constant="97.5" id="rDE-Sz-tOS"/>
+                            <constraint firstAttribute="centerX" secondItem="9Wz-0b-fLF" secondAttribute="centerX" constant="97.5" id="zbp-OO-Io6"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="defaultProgress" destination="tfP-oQ-SUB" id="fJc-w8-o8c"/>
+                        <outlet property="scrollProgress" destination="BTL-aT-Joy" id="stT-5p-eg4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="215" y="479"/>
         </scene>
     </scenes>
 </document>

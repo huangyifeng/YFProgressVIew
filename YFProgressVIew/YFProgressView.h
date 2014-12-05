@@ -17,8 +17,10 @@ typedef enum
 
 @interface YFProgressView : UIView
 
-@property(nonatomic, assign) YFProgressViewScrollStyle scrollStyle;
-@property(nonatomic, assign) float progress;
+@property(nonatomic, assign) YFProgressViewScrollStyle  scrollStyle;
+@property(nonatomic, assign) float                      progress;
+@property(nonatomic, strong) UIColor                    *trackBarColor;
+@property(nonatomic, strong) UIColor                    *progressBarColor;
 
 - (instancetype)initWithScrollStyle:(YFProgressViewScrollStyle)scrollStyle;
 
@@ -26,6 +28,6 @@ typedef enum
            animated:(BOOL)animated;
 
 - (void)startScroll;
-
+- (void)stopScroll;
 
 @end
